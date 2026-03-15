@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class Enemy : MonoBehaviour, IPoolable<Enemy>
+    public class EnemyCube: MonoBehaviour, IPoolable<EnemyCube>
     {
         [SerializeField] private float _moveSpeed = 10f;
 
@@ -14,7 +14,7 @@ namespace Assets.Scripts
 
         private float _speed;
 
-        public event Action<Enemy> ReadyToDestroy;
+        public event Action<EnemyCube> ReadyToDestroy;
 
         private Coroutine _coroutine;
 
@@ -41,7 +41,7 @@ namespace Assets.Scripts
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.GetComponent<EnemyReachedDestination>() != null)
+            if (collision.gameObject.GetComponent<EnemyReachedDestinationCube>() != null)
             {
                 _coroutine = StartCoroutine(WaitDelayDestroy(UnityEngine.Random.Range(0.2f, 0.8f)));
             }

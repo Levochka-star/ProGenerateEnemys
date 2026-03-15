@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace Assets.Scripts
 {
-    public class SpawnEnemy : Spawner<Enemy>
+    public class SpawnerEnemyCube : Spawner<EnemyCube>
     {
         [SerializeField] private Transform _poinTarget;
         [SerializeField] private float _timeSpawn = 2f;
@@ -49,7 +49,7 @@ namespace Assets.Scripts
         {
             yield return new WaitForSeconds(delay);
 
-            Enemy enemy = Spawn();
+            EnemyCube enemy = Spawn();
 
             enemy.SetTarget(_poinTarget);
             enemy.transform.position = GenerateRandomVector3();

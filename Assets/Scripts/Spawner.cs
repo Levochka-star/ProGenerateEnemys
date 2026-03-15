@@ -4,11 +4,6 @@ using UnityEngine.Pool;
 
 namespace Assets.Scripts
 {
-    public interface IPoolable<T> where T : MonoBehaviour, IPoolable<T>
-    {
-        public event Action<T> ReadyToDestroy;
-    }
-
     public class Spawner<T> : MonoBehaviour where T : MonoBehaviour, IPoolable<T>
     {
         [SerializeField] private T _prefab;
